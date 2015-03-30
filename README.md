@@ -1,4 +1,4 @@
-activator-akka-scala-seed
+akka-cluster-boilerplate
 =========================
 
-A minimal seed template for an Akka with Scala build 
+A template for working with scala and akka-cluster
