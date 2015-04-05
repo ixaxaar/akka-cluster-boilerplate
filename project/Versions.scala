@@ -10,4 +10,9 @@ object Versions {
   val ScalaTest      = "2.2.1"
   val Sigar          = "1.6.4"
   val Slf4j          = "1.6.1"
+  val Scalding       = "0.13.1"
+  val Hadoop         = "2.4.1"
+  val Specs2         = "1.13"
+  val Cascading      = "2.7.0-wip-+"
+  val Spark          = "1.2.1"
 }
