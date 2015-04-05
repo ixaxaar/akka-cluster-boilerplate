@@ -4,7 +4,8 @@ scala-boilerplate
 A template for working with scala-based data systems and creating mashups.
 
 Currently supported:
-1. Akka-cluster
+
+1. Akka-cluster (remoting)
 2. Apache Spark
 3. Scalding-Cascading
 
