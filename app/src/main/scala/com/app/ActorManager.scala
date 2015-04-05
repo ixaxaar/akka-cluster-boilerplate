@@ -1,8 +1,10 @@
-package com.common
+package com.app
 
 import akka.actor.{Actor, ActorLogging, Props, ActorRef}
 import akka.cluster.Member
 import com.common.cluster.ClusterSupervisor
+
+import com.common.Cluster._
 
 
 class ActorManager(settings:CommonSettings) extends ClusterSupervisor {

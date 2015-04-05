@@ -1,4 +1,4 @@
-package com.common
+package com.app
 
 import akka.actor.{ActorSystem, PoisonPill, Props}
 
