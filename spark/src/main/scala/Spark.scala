@@ -11,19 +11,16 @@ import scala.concurrent.duration._
 
 abstract class SparkBatch(name:String) extends Actor with ActorLogging {
   import Events._
+  val settings = new Settings
+  import settings._
 
   // the spark context
-  val sparkConf = new SparkConf().setAppName(name)
+  val sparkConf = new SparkConf().setAppName(name).setMaster(sparkMaster)
   val sc = new SparkContext(sparkConf)
   val sqlContext = new org.apache.spark.sql.SQLContext(sc)
   import sqlContext._
 
-  // changing this will cause batch to be called repeatedly
-  // with time period = cyclic
-  var cyclic:Int = 0
-  var handle:Cancellable
-
-  def actorReceive:Actor.Receive = maintainState
+  def receive:Actor.Receive = maintainState
 
   def maintainState:Actor.Receive = {
     case SparkBatchShuttingDown =>
