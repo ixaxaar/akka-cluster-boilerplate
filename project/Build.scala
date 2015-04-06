@@ -22,8 +22,16 @@ object AppBuild extends Build {
     settings(libraryDependencies ++= Dependencies.scalding).
     settings(defaultSettings: _*)
 
-  // lazy val app = (project in file("./app")).
+  lazy val app = Project(
+    id = "app",
+    base = file("./app"),
+    dependencies = Seq(common, spark, scalding),
+    settings = defaultSettings ++ Seq(libraryDependencies ++= Dependencies.common )
+  )
+
+  // (project in file("./app")).
   //   settings(libraryDependencies ++= Dependencies.common).
-  //   settings(defaultSettings: _*)
+  //   settings(defaultSettings: _*).
+  //   settings(dependencies: Seq(common, spark, scalding))
 }
 
