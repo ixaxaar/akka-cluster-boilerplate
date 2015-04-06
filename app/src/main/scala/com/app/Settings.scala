@@ -1,6 +1,6 @@
 package com.app
 
-import com.common.Settings._
+import com.scalding.Settings._
 
 object Settings {
   //

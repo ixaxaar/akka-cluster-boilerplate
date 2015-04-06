@@ -4,7 +4,10 @@ import akka.actor.{Actor, ActorLogging, Props, ActorRef}
 import akka.cluster.Member
 import com.common.cluster.ClusterSupervisor
 
-import com.common.Cluster._
+import com.common.cluster._
+import com.common.CommonSettings
+import com.common.Events._
+import com.spark.Events._
 
 
 class ActorManager(settings:CommonSettings) extends ClusterSupervisor {
@@ -16,6 +19,7 @@ class ActorManager(settings:CommonSettings) extends ClusterSupervisor {
 
   val ping = context.actorOf(Props(new PingActor), "ping-actor")
   val pong = context.actorOf(Props(new PongActor), "pong-actor")
+  val spark = context.actorOf(Props(new SparkApp("spark")), "spark-batch-linear-regression")
 
   override def preStart():Unit = {
     super.preStart()
@@ -27,7 +31,8 @@ class ActorManager(settings:CommonSettings) extends ClusterSupervisor {
     log.info("/////////////////////")
     log.info("// Starting nodes //")
     log.info("/////////////////////")
-    ping ! Start
+    // ping ! Start
+    spark ! SparkBatchStart
 
     context become actorReceive
   }

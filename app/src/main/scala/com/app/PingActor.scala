@@ -1,6 +1,8 @@
-package com.common
+package com.app
 
 import akka.actor.{Actor, ActorLogging, Props, ActorRef}
+
+import com.common.Events._
 
 
 // class PingActor(settings:CommonSettings) extends Actor with ActorLogging {

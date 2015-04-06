@@ -1,6 +1,7 @@
 package com.app
 
 import akka.actor.{ActorSystem, PoisonPill, Props}
+import com.common.CommonSettings
 
 
 object ApplicationMain extends App {
